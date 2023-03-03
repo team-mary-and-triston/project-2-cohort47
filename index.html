@@ -5,81 +5,76 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    
 </head>
 <body>
-    <h1>
-        This is a Title!
-    </h1>
-    <ul>
-        <!--This will Display our list of Movies-->
-    </ul>
+    <!--Nav Bar-->
+    <!--Display once form has been submitted-->
+    <div>
+        <nav>
+            <ul>
+                <li></li>
+            </ul>
+        </nav>
+    </div>
+    <!--Main Page Content-->
+    <header>
+        <div>
+            <h1>PickFlix</h1>  
+            <h3>We can suggest a list of movies for you to watch</h3>      
+            <p>Select the year and Genre of the movie you would like to watch</p>
+            <div class="filters">
+                <form action="get">
+                
+                    <!--Dropdown Menu Here-->
+                    <select name="genre" id="gnere">
+                        <option value=""></option>
+                        <option value=""></option>
+                        <option value=""></option>
+                        <option value=""></option>
+                    </select>
+                    
+                    <!--Dropdown Menu Here-->
+                    <select name="year" id="year">
+                        <option value=""></option>
+                        <option value=""></option>
+                        <option value=""></option>
+                        <option value=""></option>
+                    </select>
+                    <button>Pick my Flix</button>
+                </form>
+            </div>
+        </div>
+    </header>
+    <main>
+        <!--API Results Go Here-->
+        <div>
+            <ul></ul>            
+        </div>
+        <!--Modal - Once User has clicked on certain Image-->
+        <div>
+            <div>
+                <button></button>
+            </div>
+            <div>
+                <img src="" alt=""> <!--Is it possible to create listener to lead to trailer page-->
+                <h2></h2>
+                <p></p>
+                <a href=""></a>
+            </div>
+            <div>
+                <ul>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                </ul>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <p></p>
+    </footer>
+    <script src="script.js"></script>
 </body>
-<script>
-    const app = {}
-
-    app.apiKey = "352855b1ece3130738315189ae8c3079";
-    app.url = "https://api.themoviedb.org/3/genre/movie/list";
-
-    const url = new URL(app.url)
-    url.search = new URLSearchParams({
-        api_key:app.apiKey,
-        language: 'en-US', 
-        sort_by: "popularity.desc",
-        year: 2022, 
-        with_genres: "10751",
-        page: 1,
-
-    })
-        fetch(url)
-            .then(function(response){
-                return response.json();
-            })
-            .then(function(jsonResult){
-                console.log(jsonResult)
-                //Pass our JSON Results to our displayMovies function.
-                app.displayMovies(jsonResult)
-            });
-
-
-    // app.displayMovies = (movieList) => {
-    //     const target = document.querySelector('ul');
-
-    //     movieList.filter(movie => {
-
-    //         //Create target element. 
-    //         const movieRec = document.createElement('li');
-            
-    //         //Create element that will hold out Results. 
-    //         const thumbnail = document.createElement('img');
-
-    //         //Create global variables that contain options that are set.
-    //         const genreSelected = document.querySelector('#');
-    //         const yearSelected = document.querySelector('#');
-    //         const button = document.querySelector('form');
-
-    //         //Add Submission event listener to our button.
-    //         button.addEventListener('submit', (event) => { 
-    //             //Don't Submit the form yet.
-    //             event.preventDefault();
-    //             //If user input matches with movie Genre & Year...
-    //             if (genreSelected === movie.genre && yearSelected === movie.year) {
-    //             //We will create and Element for our list of Recomendations 
-    //                 const recs = document.createElement('li');
-    //                 //Inside the recs li we will need code to contain our new variables 
-    //                 recs.innerHTML = `
-    //                 <img>###</img>
-    //                 <p>###</p>
-    //                 <p>###</p>
-    //                 `
-    //                 console.log(genrePicked);
-    //             }
-    //         });
-            
-    //     })
-
-    // }
-
-   
-</script>
-
 </html>
