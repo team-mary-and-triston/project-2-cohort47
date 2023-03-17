@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="/styles/styles.css">
     
 </head>
 <body>
@@ -20,27 +20,30 @@
     </div>
     <!--Main Page Content-->
     <header>
-        <div>
+        <div class="logo">
+            <h1>PickFlix Logo</h1>
+        </div>
+        <div class="landing">
             <h1>PickFlix</h1>  
-            <h3>We can suggest a list of movies for you to watch</h3>      
+            <h3>We can suggest a list of films for you to watch</h3>      
             <p>Select the year and Genre of the movie you would like to watch</p>
             <div class="filters">
                 <form action="get">
                 
                     <!--Dropdown Menu Here-->
                     <select name="genre" id="gnere">
-                        <option value=""></option>
-                        <option value=""></option>
-                        <option value=""></option>
-                        <option value=""></option>
+                        <option value="">Horror</option>
+                        <option value="">Action</option>
+                        <option value="">Crime</option>
+                        <option value="">Romance</option>
                     </select>
                     
                     <!--Dropdown Menu Here-->
                     <select name="year" id="year">
-                        <option value=""></option>
-                        <option value=""></option>
-                        <option value=""></option>
-                        <option value=""></option>
+                        <option value="">1990's</option>
+                        <option value="">1980's</option>
+                        <option value="">1970's</option>
+                        <option value="">1960's</option>
                     </select>
                     <button>Pick my Flix</button>
                 </form>
