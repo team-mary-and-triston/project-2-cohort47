@@ -24,29 +24,34 @@
             <h1>PickFlix Logo</h1>
         </div>
         <div class="landing">
-            <h1>PickFlix</h1>  
-            <h3>We can suggest a list of films for you to watch</h3>      
-            <p>Select the year and Genre of the movie you would like to watch</p>
-            <div class="filters">
-                <form action="get">
-                
-                    <!--Dropdown Menu Here-->
-                    <select name="genre" id="gnere">
-                        <option value="">Horror</option>
-                        <option value="">Action</option>
-                        <option value="">Crime</option>
-                        <option value="">Romance</option>
-                    </select>
-                    
-                    <!--Dropdown Menu Here-->
-                    <select name="year" id="year">
-                        <option value="">1990's</option>
-                        <option value="">1980's</option>
-                        <option value="">1970's</option>
-                        <option value="">1960's</option>
-                    </select>
-                    <button>Pick my Flix</button>
-                </form>
+            <div class="landingImage">
+                <img class="mainImage" src="assets/landingCover.png" alt="users enjoying a film">
+            </div>
+            <div class="landingText">
+                <h1>PickFlix</h1>  
+                <h2>We will curate a list of films for you to watch</h2>
+                <h3>What are you in the mood for? </h3>   
+                <p>Select the Year and Genre of the movie you would like to watch</p>
+                <div class="filters">
+                    <form>
+                        <!--Dropdown Menu Here-->
+                        <select name="genre" id="gnere">
+                            <option value="">Horror</option>
+                            <option value="">Action</option>
+                            <option value="">Crime</option>
+                            <option value="">Romance</option>
+                        </select>
+                        
+                        <!--Dropdown Menu Here-->
+                        <select name="year" id="year">
+                            <option value="">1990's</option>
+                            <option value="">1980's</option>
+                            <option value="">1970's</option>
+                            <option value="">1960's</option>
+                        </select>
+                        <button>Pick my Flix</button>
+                    </form>
+                </div>
             </div>
         </div>
     </header>
@@ -59,7 +64,7 @@
                         <img src="" alt="">
                     </div>
                     <div>
-                        <p>Movie Title</p>
+                        <h2></h2>
                     </div>
                 </li>
             </ul>            
