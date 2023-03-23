@@ -20,7 +20,6 @@
       -ms-flex-pack: center;
           justify-content: center;
   padding: 50px;
-  margin: 20px;
   background-color: rgb(206, 100, 100);
 }
 .landing .landingImage {
@@ -85,8 +84,10 @@
       -ms-flex-pack: center;
           justify-content: center;
 }
-.landing .landingText .filters select {
-  width: 90px;
+.landing .landingText .filters select, .landing .landingText .filters button {
+  width: auto;
+  font-size: 1.2rem;
+  font-weight: bold;
 }
 
 article, aside, details, figcaption, figure, footer, header, hgroup, nav, section, summary {
@@ -268,4 +269,52 @@ legend, button::-moz-focus-inner, input::-moz-focus-inner {
           clip-path: inset(100%);
   clip: rect(0 0 0);
   overflow: hidden;
+}
+
+.wrapper {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+a {
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}
+
+body {
+  height: 100vh;
+  color: #fff;
+  background: linear-gradient(-45deg, #EE7752, #E73C7E, #23A6D5, #23E5AB);
+  background-size: 400% 400%;
+  position: relative;
+  -webkit-animation: change 10s ease-in-out infinite;
+          animation: change 10s ease-in-out infinite;
+}
+
+@-webkit-keyframes change {
+  0% {
+    background-position: 0 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0 50%;
+  }
+}
+
+@keyframes change {
+  0% {
+    background-position: 0 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0 50%;
+  }
 }

@@ -10,7 +10,7 @@
     align-items: center;
     justify-content: center;
     padding: 50px;
-    margin: 20px;
+    
     background-color: rgb(206, 100, 100);
 
     .landingImage {
@@ -50,8 +50,10 @@
         .filters {
             display: flex;
             justify-content: center;
-            select {
-                width: 90px;
+            select, button {
+                width: auto;
+                font-size: 1.2rem;
+                font-weight: bold;
             }
         } 
     }
