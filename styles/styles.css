@@ -247,7 +247,7 @@ button {
   text-transform: uppercase;
   font-weight: 600;
   cursor: pointer;
-  background-color: darkred;
+  background-color: #8b0000;
   color: white;
   border: none;
   -webkit-transition: 0.4s;
@@ -255,7 +255,7 @@ button {
 }
 
 main {
-  background-color: rgb(217, 17, 17);
+  background-color: #d00000;
   height: 100vh;
   padding: 100px;
 }
