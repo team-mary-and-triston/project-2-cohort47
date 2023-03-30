@@ -221,16 +221,12 @@ html {
   overflow: hidden;
 }
 
-ul, p, h2, button {
+p, h1, h2, h3, h4, button {
   padding-left: 0;
-  list-style: none;
   margin: 0;
   font-family: "Poppins", sans-serif;
   letter-spacing: 1px;
-}
-
-a {
-  text-decoration: none;
+  font-weight: 400;
 }
 
 html {
@@ -240,12 +236,19 @@ html {
 button {
   padding: 10px 20px;
   text-transform: uppercase;
-  font-weight: 600;
+  font-weight: bold;
   cursor: pointer;
   background-color: white;
   color: #2B303A;
   border: none;
   transition: 0.4s;
+  font-size: 1.2rem;
+}
+
+button:hover,
+button:active {
+  background-color: rgb(66, 66, 66);
+  color: white;
 }
 
 .logo {
@@ -283,6 +286,7 @@ button {
   display: flex;
   align-self: center;
   margin: 0 0 200px 0;
+  font-weight: 600;
 }
 .landing .landingText h3 {
   display: flex;
@@ -299,10 +303,8 @@ button {
   display: flex;
   justify-content: center;
 }
-.landing .landingText .filters select, .landing .landingText .filters button {
+.landing .landingText .filters select {
   width: auto;
-  font-size: 1.2rem;
-  font-weight: bold;
 }
 
 .wrapper {
@@ -344,11 +346,12 @@ body {
   margin: 50px 0;
   padding: 50px 0;
 }
-.results h2 {
+.results h4 {
   text-align: center;
   font-size: 2.2rem;
   margin-bottom: 30px;
   letter-spacing: 2px;
+  font-weight: 800;
 }
 .results ul {
   display: flex;
@@ -398,9 +401,4 @@ body {
   display: flex;
   justify-content: center;
   gap: 50px;
-}
-.results .btnContainer button:hover,
-.results .btnContainer button:active {
-  background-color: rgb(66, 66, 66);
-  color: white;
 }/*# sourceMappingURL=styles.css.map */

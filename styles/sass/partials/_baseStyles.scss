@@ -1,13 +1,9 @@
-ul, p, h2, button {
+p, h1, h2, h3, h4, button {
     padding-left: 0;
-    list-style: none;
     margin: 0;
     font-family: 'Poppins', sans-serif;
     letter-spacing: 1px;
-}
-
-a {
-    text-decoration: none;
+    font-weight: 400;
 }
 
 html {
@@ -17,12 +13,20 @@ html {
 button {
     padding: 10px 20px;
     text-transform: uppercase;
-    font-weight: 600;
+    font-weight: bold;
     cursor: pointer;
     background-color: white;
     color: #2B303A;
     border: none;
     transition: 0.4s;
+    font-size: 1.2rem;
+}
+
+button:hover,
+button:active {
+    background-color: rgb(66, 66, 66);
+    color: white;
+
 }
 
 // * {
