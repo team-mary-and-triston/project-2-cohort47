@@ -1,0 +1,62 @@
+.logo {
+    display: flex;
+    justify-content: center;
+    padding: 0 0 30px 0;
+
+}
+
+.landing {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 50px;
+    
+    background-color: rgb(206, 100, 100);
+
+    .landingImage {
+        width: 50%;
+        display: flex;
+        .mainImage {
+            width: 100%;
+        }
+    }
+
+    .landingText {
+        width: 50%;
+        display: flex;
+        flex-direction: column;
+        h1 {
+            display: flex;
+            justify-content: center;
+            color: white;
+            margin: 0 0 10px 0;
+        }
+        h2 {
+            display: flex;
+            align-self: center;
+            margin: 0 0 200px 0;
+        }
+        h3 {
+            display: flex;
+            align-self: center;
+            margin: 0;
+        }
+        p {
+            display: flex;
+            align-self: center;
+            color: white;
+            margin-top: 5px;
+        }  
+        .filters {
+            display: flex;
+            justify-content: center;
+            select, button {
+                width: auto;
+                font-size: 1.2rem;
+                font-weight: bold;
+            }
+        } 
+    }
+
+    
+}
