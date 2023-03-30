@@ -1,13 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="style.css">
-    
+    <title>PickFlix</title>
+    <link rel="icon" type="image/x-icon" href="./assets/pickFlix_fav.png">
+    <link rel="stylesheet" href="./styles/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;600;800&display=swap" rel="stylesheet">
 </head>
+
 <body>
     <!--Nav Bar-->
     <!--Display once form has been submitted-->
@@ -26,17 +31,17 @@
             <p>Select the year and Genre of the movie you would like to watch</p>
             <div class="filters">
                 <form action="get"> -->
-                
-                    <!--Dropdown Menu Here-->
-                    <!-- <select name="genre" id="gnere">
+
+    <!--Dropdown Menu Here-->
+    <!-- <select name="genre" id="gnere">
                         <option value=""></option>
                         <option value=""></option>
                         <option value=""></option>
                         <option value=""></option>
                     </select> -->
-                    
-                    <!--Dropdown Menu Here-->
-                    <!-- <select name="year" id="year">
+
+    <!--Dropdown Menu Here-->
+    <!-- <select name="year" id="year">
                         <option value=""></option>
                         <option value=""></option>
                         <option value=""></option>
@@ -49,17 +54,42 @@
     </header> -->
     <main>
         <!--API Results Go Here-->
-        <div>
+        
+        <div class="results">
+            <h2>RESULTS</h2>
             <ul>
-                <li>
-                    <div>
-                        <img src="" alt="">
+                <li class="resultsContainer">
+                    <div class="imgContainer">
+                        <img src="./assets/MV5BNjMyMDBjMGUtNDUzZi00N2MwLTg1MjItZTk2MDE1OTZmNTYxXkEyXkFqcGdeQXVyMTQ5NjA0NDM0._V1_FMjpg_UX1000_.jpg"
+                            alt="Puss in Boots: The last wish">
                     </div>
-                    <div>
-                        <p>Movie Title</p>
+                    <div class="textOverlay">
+                        <p>Puss in Boots: The Last Wish</p>
                     </div>
                 </li>
-            </ul>            
+                <li class="resultsContainer">
+                    <div class="imgContainer">
+                        <img src="./assets/MV5BNjMyMDBjMGUtNDUzZi00N2MwLTg1MjItZTk2MDE1OTZmNTYxXkEyXkFqcGdeQXVyMTQ5NjA0NDM0._V1_FMjpg_UX1000_.jpg"
+                            alt="Puss in Boots: The last wish">
+                    </div>
+                    <div class="textOverlay">
+                        <p>Puss in Boots: The Last Wish</p>
+                    </div>
+                </li>
+                <li class="resultsContainer">
+                    <div class="imgContainer">
+                        <img src="./assets/MV5BNjMyMDBjMGUtNDUzZi00N2MwLTg1MjItZTk2MDE1OTZmNTYxXkEyXkFqcGdeQXVyMTQ5NjA0NDM0._V1_FMjpg_UX1000_.jpg"
+                            alt="Puss in Boots: The last wish">
+                    </div>
+                    <div class="textOverlay">
+                        <p>Puss in Boots: The Last Wish</p>
+                    </div>
+                </li>
+            </ul>
+            <div class="btnContainer">
+                <button id="moreBtn">More Results</button>
+                <button id="resetBtn">Reset Search</button>
+            </div>
         </div>
         <!--Modal - Once User has clicked on certain Image-->
         <!-- <div>
@@ -68,8 +98,8 @@
             </div>
             <div>
                 <img src="" alt="">  -->
-                <!--Is it possible to create listener to lead to trailer page-->
-                <!-- <h2></h2>
+        <!--Is it possible to create listener to lead to trailer page-->
+        <!-- <h2></h2>
                 <p></p>
                 <a href=""></a>
             </div>
@@ -87,4 +117,5 @@
     </footer>
     <script src="script.js"></script>
 </body>
+
 </html>

@@ -1,7 +1,8 @@
 const app = {}
 
 app.apiKey = "352855b1ece3130738315189ae8c3079";
-app.url = "https://api.themoviedb.org/3/genre/movie/list";
+app.url = 'https://api.themoviedb.org/3/discover/movie';
+// app.url = "https://api.themoviedb.org/3/genre/movie/list";
 
 const url = new URL(app.url)
 url.search = new URLSearchParams({
@@ -20,5 +21,7 @@ url.search = new URLSearchParams({
         .then(function(jsonResult){
             console.log(jsonResult)
             //Pass our JSON Results to our displayMovies function.
-            app.displayMovies(jsonResult)
+            // app.displayMovies(jsonResult)
         });
+
+

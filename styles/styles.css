@@ -225,3 +225,115 @@ html {
   clip: rect(0 0 0 0);
   overflow: hidden;
 }
+
+ul, p, h2, button {
+  padding-left: 0;
+  list-style: none;
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+  letter-spacing: 1px;
+}
+
+a {
+  text-decoration: none;
+}
+
+html {
+  font-size: 125%;
+}
+
+button {
+  padding: 10px 20px;
+  text-transform: uppercase;
+  font-weight: 600;
+  cursor: pointer;
+  background-color: darkred;
+  color: white;
+  border: none;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+main {
+  background-color: rgb(217, 17, 17);
+  height: 100vh;
+  padding: 100px;
+}
+main .results {
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 50px 0;
+}
+main .results h2 {
+  text-align: center;
+  font-size: 2.2rem;
+  margin-bottom: 30px;
+  letter-spacing: 2px;
+}
+main .results ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  gap: 50px;
+}
+main .results ul .resultsContainer {
+  width: 25%;
+  position: relative;
+}
+main .results ul .resultsContainer .imgContainer {
+  width: 100%;
+  height: 100%;
+}
+main .results ul .resultsContainer .imgContainer img {
+  width: inherit;
+  height: inherit;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+main .results ul .resultsContainer .textOverlay {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 15px;
+  background-color: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  cursor: pointer;
+}
+main .results ul .resultsContainer .textOverlay p {
+  text-align: center;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: white;
+}
+main .results ul .resultsContainer .textOverlay:hover {
+  opacity: 1;
+}
+main .results .btnContainer {
+  margin-top: 50px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  gap: 50px;
+}
+main .results .btnContainer button:hover,
+main .results .btnContainer button:active {
+  background-color: rgb(66, 66, 66);
+}
