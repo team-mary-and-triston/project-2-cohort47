@@ -3,10 +3,11 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
   padding: 0 0 30px 0;
+  width: 20%;
 }
 
 .landing {
@@ -20,7 +21,7 @@
       -ms-flex-pack: center;
           justify-content: center;
   padding: 50px;
-  background-color: rgb(206, 100, 100);
+  background-color: #8B0000;
 }
 .landing .landingImage {
   width: 50%;
@@ -41,15 +42,13 @@
       -ms-flex-direction: column;
           flex-direction: column;
 }
-.landing .landingText h1 {
+.landing .landingText img {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  color: white;
-  margin: 0 0 10px 0;
+  -ms-flex-item-align: center;
+      align-self: center;
+  width: 30%;
 }
 .landing .landingText h2 {
   display: -webkit-box;
@@ -283,6 +282,11 @@ a {
 
 ul {
   list-style: none;
+}
+
+img {
+  width: 100%;
+  display: block;
 }
 
 body {
