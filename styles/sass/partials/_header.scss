@@ -36,6 +36,7 @@
             display: flex;
             align-self: center;
             margin: 0 0 200px 0;
+            font-weight: 600;
         }
         h3 {
             display: flex;
@@ -51,10 +52,8 @@
         .filters {
             display: flex;
             justify-content: center;
-            select, button {
+            select {
                 width: auto;
-                font-size: 1.2rem;
-                font-weight: bold;
             }
         } 
     }
