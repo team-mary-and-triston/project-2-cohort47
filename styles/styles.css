@@ -236,7 +236,7 @@ html {
 button {
   padding: 10px 20px;
   text-transform: uppercase;
-  font-weight: bold;
+  font-weight: 800;
   cursor: pointer;
   background-color: white;
   color: #2B303A;
