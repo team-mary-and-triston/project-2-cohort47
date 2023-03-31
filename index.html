@@ -1,13 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="/styles/styles.css">
-    
+    <title>PickFlix</title>
+    <link rel="icon" type="image/x-icon" href="./assets/pickFlix_fav.png">
+    <link rel="stylesheet" href="./styles/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;600;800&display=swap" rel="stylesheet">
 </head>
+
 <body>
 <div class="wrapper">
 
@@ -30,9 +35,9 @@
                 <img class="mainImage" src="assets/landingCover.png" alt="users enjoying a film">
             </div>
             <div class="landingText">
-                <h1>PickFlix</h1>  
+                <h1>PickFlix</h1>
                 <h2>We will curate a list of films for you to watch</h2>
-                <h3>What are you in the mood for? </h3>   
+                <h3>What are you in the mood for? </h3>
                 <p>Select the Year and Genre of the movie you would like to watch</p>
                 <div class="filters">
                     <form>
@@ -43,7 +48,7 @@
                             <option value="">Crime</option>
                             <option value="">Romance</option>
                         </select>
-                        
+
                         <!--Dropdown Menu Here-->
                         <select name="year" id="year">
                             <option value="">1990's</option>
@@ -60,26 +65,54 @@
 </div>
     <main>
         <!--API Results Go Here-->
-        <div>
+    <div class="wrapper">
+        <div class="results">
+            <h4>RESULTS</h4>
             <ul>
-                <li>
-                    <div>
-                        <img src="" alt="">
+                <li class="resultsContainer">
+                    <div class="imgContainer">
+                        <img src="./assets/MV5BNjMyMDBjMGUtNDUzZi00N2MwLTg1MjItZTk2MDE1OTZmNTYxXkEyXkFqcGdeQXVyMTQ5NjA0NDM0._V1_FMjpg_UX1000_.jpg"
+                            alt="Puss in Boots: The last wish">
                     </div>
-                    <div>
-                        <h2></h2>
+                    <div class="textOverlay">
+                        <p>Puss in Boots: The Last Wish</p>
                     </div>
                 </li>
-            </ul>            
+                <li class="resultsContainer">
+                    <div class="imgContainer">
+                        <img src="./assets/MV5BNjMyMDBjMGUtNDUzZi00N2MwLTg1MjItZTk2MDE1OTZmNTYxXkEyXkFqcGdeQXVyMTQ5NjA0NDM0._V1_FMjpg_UX1000_.jpg"
+                            alt="Puss in Boots: The last wish">
+                    </div>
+                    <div class="textOverlay">
+                        <p>Puss in Boots: The Last Wish</p>
+                    </div>
+                </li>
+                <li class="resultsContainer">
+                    <div class="imgContainer">
+                        <img src="./assets/MV5BNjMyMDBjMGUtNDUzZi00N2MwLTg1MjItZTk2MDE1OTZmNTYxXkEyXkFqcGdeQXVyMTQ5NjA0NDM0._V1_FMjpg_UX1000_.jpg"
+                            alt="Puss in Boots: The last wish">
+                    </div>
+                    <div class="textOverlay">
+                        <p>Puss in Boots: The Last Wish</p>
+                    </div>
+                </li>
+            </ul>
+            <div class="btnContainer">
+                <button id="moreBtn">More Results</button>
+                <button id="resetBtn">Reset Search</button>
+            </div>
         </div>
+    </div>
+        
         <!--Modal - Once User has clicked on certain Image-->
-        <div>
+        <!-- <div>
             <div>
                 <button></button>
             </div>
             <div>
-                <img src="" alt=""> <!--Is it possible to create listener to lead to trailer page-->
-                <h2></h2>
+                <img src="" alt="">  -->
+        <!--Is it possible to create listener to lead to trailer page-->
+        <!-- <h2></h2>
                 <p></p>
                 <a href=""></a>
             </div>
@@ -90,11 +123,12 @@
                     <li></li>
                 </ul>
             </div>
-        </div>
+        </div> -->
     </main>
     <footer>
         <p></p>
     </footer>
     <script src="script.js"></script>
 </body>
+
 </html>
