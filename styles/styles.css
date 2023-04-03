@@ -261,10 +261,14 @@ button:active {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
   padding: 0 0 30px 0;
+  width: 20%;
+}
+.logo .mainLogo {
+  width: 100%;
 }
 
 .landing {
@@ -278,7 +282,7 @@ button:active {
       -ms-flex-pack: center;
           justify-content: center;
   padding: 50px;
-  background-color: #8b0000;
+  background-color: #8B0000;
 }
 .landing .landingImage {
   width: 50%;
@@ -299,15 +303,13 @@ button:active {
       -ms-flex-direction: column;
           flex-direction: column;
 }
-.landing .landingText h1 {
+.landing .landingText img {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  color: white;
-  margin: 0 0 10px 0;
+  -ms-flex-item-align: center;
+      align-self: center;
+  width: 30%;
 }
 .landing .landingText h2 {
   display: -webkit-box;

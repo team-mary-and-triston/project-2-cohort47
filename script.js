@@ -1,13 +1,14 @@
 
 
-const movieApp = {};
+const app = {};
 
-movieApp.init = () => {
-    movieApp.submitListener();
+app.init = () => {
+    app.submitListener();
 };
 
 // "Pick my Flix" listener
-movieApp.submitListener = () => {
+app.submitListener = () => {
+    // target submit button
     const submitBtn = document.getElementById('submitBtn');
     
     // listen for click
@@ -23,45 +24,40 @@ movieApp.submitListener = () => {
         const earliestDate = ["1960-01-01", "1970-01-01", "1980-01-01", "1990-01-01"];
         const latestDate = ["1969-12-31", "1979-12-31", "1989-12-31", "1999-12-31"]; 
 
-
         // change user selection of genre into id used by API 
         if (selectedGenre === "Crime") {
-            movieApp.genreId = 80;
+            app.genreId = 80;
         } else if (selectedGenre === "Horror") {
-            movieApp.genreId = 27;
+            app.genreId = 27;
         } else if (selectedGenre === "Romance") {
-            movieApp.genreId = 10749;
+            app.genreId = 10749;
         } else if (selectedGenre === "Action") {
-            movieApp.genreId = 28;
+            app.genreId = 28;
         };
-
 
         //change user selection for year into index in order to use for earliest and lastest date
         if (selectedYear === "1990") {
-            movieApp.yearId = 3;
+            app.yearId = 3;
         } else if (selectedYear === "1980") {
-            movieApp.yearId = 2;
+            app.yearId = 2;
         } else if (selectedYear === "1970") {
-            movieApp.yearId = 1;
+            app.yearId = 1;
         } else if (selectedYear === "1960") {
-            movieApp.yearId = 0;
+            app.yearId = 0;
         };
 
-        console.log(movieApp.yearId,movieApp.genreId)
-        
-
         // API call
-        movieApp.apiKey = "352855b1ece3130738315189ae8c3079";
-        movieApp.url = "https://api.themoviedb.org/3/discover/movie"; 
-        const url = new URL(movieApp.url)
+        app.apiKey = "352855b1ece3130738315189ae8c3079";
+        app.url = "https://api.themoviedb.org/3/discover/movie"; 
+        const url = new URL(app.url)
         url.search = new URLSearchParams({
-            api_key: movieApp.apiKey,
+            api_key: app.apiKey,
             language: 'en-US',
             sort_by: "popularity.desc",
-            with_genres: movieApp.genreId,
+            with_genres: app.genreId,
             page: 1,
-            "primary_release_date.gte": earliestDate[movieApp.yearId],
-            "primary_release_date.lte": latestDate[movieApp.yearId],
+            "primary_release_date.gte": earliestDate[app.yearId],
+            "primary_release_date.lte": latestDate[app.yearId],
         })
         fetch(url)
             .then(function (response) {
@@ -69,16 +65,74 @@ movieApp.submitListener = () => {
             })
             .then(function (jsonResult) {
                 //Pass our JSON Results to our displayMovies function.
-                console.log(jsonResult.results, jsonResult.total_pages)
-                // movieApp.displayMovies(jsonResult.results);
-            })
+                app.displayMovies(jsonResult.results) 
+                // jsonResult.total_pages)
+                // app.displayMovies(jsonResult.results);
+        })
+
+        // scroll to results (have to figure out why scroll is working on the 2nd click and not the first)
+        const results = document.querySelector('h4').offsetTop;
+        window.scrollTo({ top: results, behavior: "smooth" });
+    })
+};
+
+// Display movies to page
+app.displayMovies = (arrayOfFilms) => {
+    // target ul 
+    app.movieContainer = document.querySelector('.resultsList');
+
+    arrayOfFilms.forEach(film => {
+
+        // limit results to 12
+        if (arrayOfFilms.indexOf(film) <= 11) {
+            // create li element
+            const movie = document.createElement('li');
+            movie.classList.add('resultsContainer')
+            
+            // create div elements to house image and title
+            const imageContainer = document.createElement('div');
+            imageContainer.classList.add('imgContainer');
+
+            const titleOverlay = document.createElement('div');
+            titleOverlay.classList.add('textOverlay')
+
+            // use API call data to change poster and film title
+            imageContainer.innerHTML =
+            `
+            <img src="http://image.tmdb.org/t/p/w500/${film.poster_path}" alt="${film.title}">
+            `
+            titleOverlay.innerHTML = 
+            `
+            <p>${film.title}</p>
+            `
+            // append divs to li
+            movie.appendChild(imageContainer);
+            movie.appendChild(titleOverlay);
+
+            // append li to ul on page
+            app.movieContainer.appendChild(movie)
+
+        }
+        ;
     })
 };
 
 
-// Save user selection into variable
-// append data to results section
-// listen to "more button" click to go to next page of results
+// More results listener 
+app.moreResultsListener = () => {
+    // listen to "more button" click to go to next page of results
+};
 
 
-movieApp.init();
+// Reset search listener
+app.resetSearch = () => {
+    const resetButton = document.getElementById('resetBtn');
+    const form = document.querySelector('form');
+
+    // resetButton.addEventListener('click', function() {
+    //     location.reload();
+    // })
+}
+
+
+app.init();
