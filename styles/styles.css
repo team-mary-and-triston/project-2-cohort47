@@ -267,6 +267,9 @@ button:active {
   padding: 0 0 30px 0;
   width: 20%;
 }
+.logo .mainLogo {
+  width: 100%;
+}
 
 .landing {
   display: -webkit-box;
@@ -299,7 +302,6 @@ button:active {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  margin-left: 20px;
 }
 .landing .landingText img {
   display: -webkit-box;
@@ -313,7 +315,8 @@ button:active {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  text-align: center;
+  -ms-flex-item-align: center;
+      align-self: center;
   margin: 0 0 200px 0;
   font-weight: 600;
 }
@@ -329,7 +332,8 @@ button:active {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  text-align: center;
+  -ms-flex-item-align: center;
+      align-self: center;
   color: white;
   margin-top: 5px;
 }
@@ -337,10 +341,6 @@ button:active {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
@@ -438,6 +438,7 @@ body {
   margin-bottom: 30px;
   letter-spacing: 2px;
   font-weight: 800;
+  color: white;
 }
 .results ul {
   display: -webkit-box;

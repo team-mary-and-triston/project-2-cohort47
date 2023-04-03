@@ -29,27 +29,26 @@
     <!--Main Page Content-->
     <header>
         <div class="logo">
-            <img class="mainlogo" src="/assets/pickFlix_logo3.png" alt="">
+            <img class="mainLogo" src="./assets/pickFlix_logo3.png" alt="PickFlix Logo">
         </div>
         <div class="landing">
             <div class="landingImage">
                 <img class="mainImage" src="assets/landingCover.png" alt="users enjoying a film">
             </div>
             <div class="landingText">
-                <img src="/assets/pickflix.png" alt="">  
+                <img src="./assets/pickflix.png" alt="PickFlix Logo">
                 <h2>We will curate a list of films for you to watch</h2>
                 <h3>What are you in the mood for? </h3>
                 <p>Select the Year and Genre of the movie you would like to watch</p>
                 <div class="filters">
                     <form>
                         <!--Dropdown Menu Here-->
-                        <div class="options">
-                            <select name="genre" id="genre">
-                                <option value="Horror">Horror</option>
-                                <option value="Action">Action</option>
-                                <option value="Crime">Crime</option>
-                                <option value="Romance">Romance</option>
-                            </select>
+                        <select name="genre" id="genre">
+                            <option value="Horror">Horror</option>
+                            <option value="Action">Action</option>
+                            <option value="Crime">Crime</option>
+                            <option value="Romance">Romance</option>
+                        </select>
 
                             <select name="year" id="year">
                                 <option value="1990">1990's</option>
@@ -59,7 +58,13 @@
                             </select>
                         </div>
                         <!--Dropdown Menu Here-->
-                        <button class="submit">Pick my Flix</button>
+                        <select name="year" id="year">
+                            <option value="1990">1990's</option>
+                            <option value="1980">1980's</option>
+                            <option value="1970">1970's</option>
+                            <option value="1960">1960's</option>
+                        </select>
+                        <button id="submitBtn">Pick my Flix</button>
                     </form>
                 </div>
             </div>
@@ -71,8 +76,9 @@
     <div class="wrapper">
         <div class="results">
             <h4>RESULTS</h4>
-            <ul class="resultsContainer">
-                
+            <ul class="resultsList">
+                <!-- API results go here -->
+
             </ul>
             <div class="btnContainer">
                 <button id="moreBtn">More Results</button>
