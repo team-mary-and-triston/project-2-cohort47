@@ -19,77 +19,100 @@ const genres = [
     { id: 10752, name: "War" },
     { id: 37, name: "Western" },
 ]
-
+// Function with If Statement If User chooses xxx returns earliest date/latest date,
+// based on user input we will change cearch param to particular year
+// If user chooses decae option with certain index, create if statement that returns an index number
+// If they choose 1960's [0], 1970's [1] blah blah
+const earliestDate = ["1960-01-01", "1970-01-01", "1980-01-01", "1990-01-01"];
+const latestDate = ["1969-12-31", "1979-12-31", "1989-12-31", "1999-12-31"];
 const app = {}
-
+app.init = () => {
+    app.addEventListeners();
+}
+// app.yearId;
+// app.genreId;
+console.log(app.genreId, "Global") ;
 app.apiKey = "352855b1ece3130738315189ae8c3079";
 app.url = "https://api.themoviedb.org/3/discover/movie";
-
 const url = new URL(app.url)
 url.search = new URLSearchParams({
     api_key:app.apiKey,
-    language: 'en-US', 
+    language: 'en-US',
     sort_by: "popularity.desc",
-    year: 2022, 
-    with_genres: "10749",    
+    with_genres: app.genreId,
     page: 1,
-
+    "primary_release_date.gte": earliestDate[app.yearId],
+    "primary_release_date.lte": latestDate[app.yearId],
 })
     fetch(url)
         .then(function(response){
             return response.json();
         })
         .then(function(jsonResult){
-            console.log(jsonResult);
+            // console.log(jsonResult);
             //Pass our JSON Results to our displayMovies function.
-            // app.displayMovies(jsonResult);
+            app.displayMovies(jsonResult.results);
         });
-
 // Define a Method to display the Movies
 app.displayMovies = (arrayOfFilms) => {
-    // Target the Node we will attatch to 
-    const movieContainer = document.querySelector('ul'); 
-    movieContainer.innerHTML =``;
-
-        // Iterate through the API Data 
-        genres.forEach(arrayOfFilms => {
+    // Target the Node we will attatch to
+    const movieContainer = document.querySelector('.resultsContainer');
+    // console.log(arrayOfFilms);
+        // Iterate through the API Data
+        arrayOfFilms.forEach(film => {
+            // console.log(film);
             // Create some HTML
-            // Create container Elements 
+            // Create container Elements
             const movie = document.createElement('li');
-
             // Create an element for our Movie Title
             const movieTitle = document.createElement('p');
-            movieTitle.classList.add(``)
+            movieTitle.classList.add(`array`);
             movieTitle.innerText = film.title;
-
             // Create Image Element for Poster
             const poster = document.createElement('img');
             poster.classList.add(`imgContainer`)
-            poster.innerText = film.poster_path;
-
+            poster.src = `http://image.tmdb.org/t/p/w500/${film.poster_path}`;
             // Creatre Element for release Year of Film
-            const releaseYear = document.createElement('p');  
+            const releaseYear = document.createElement('p');
             releaseYear.innerText = film.release_date;
-            
             // Put all of the Elements together
             movie.appendChild(movieTitle);
             movie.appendChild(poster);
             movie.appendChild(releaseYear);
-
-            // Append Movie to its Ul Target 
-            movieContainer.appendChild(movie);        
-    
+            // Append Movie to its Ul Target
+            movieContainer.appendChild(movie);
      })
 }
-
-// Listen for a Change Event with the Filter Options on Landing Page 
+// Listen for a Change Event with the Filter Options on Landing Page
 app.attachEventListeners = () => {
-
-    app.selection = document.querySelector('#genre');
-    app.selection.addEventListener('change', function(event){
-        const selectedGenre = app.selection.value;
+    app.genreSelect = document.querySelector('#genre');
+    app.yearSelect = document.querySelector('#year');
+    app.genreSelect.addEventListener('change', function(event){
+        const selectedGenre = app.genreSelect.value;
+        console.log(selectedGenre);
+        if (selectedGenre === "Crime"){
+            app.genreId = "80";
+        } else if (selectedGenre === "Horror"){
+            app.genreId = "27";
+        } else if (selectedGenre === "Romance"){
+            app.genreId = "10749";
+        } else {
+            app.genreId = "28";
+        }
+    console.log("genreId", app.genreId);
     });
-}
-
-
-
+    app.yearSelect.addEventListener('change', function(event){
+        const selectedYear = app.yearSelect.value;
+        if (selectedYear === "1990"){
+             app.yearId = 3;
+        } else if (selectedYear === "1980"){
+            app.yearId = 2;
+        } else if (selectedYear === "1970"){
+            app.yearId = 1;
+        } else if (selectedYear === "1960"){
+            app.yearId = 0;
+        }
+        // console.log(app.yearId)
+    }
+)};
+app.attachEventListeners();
