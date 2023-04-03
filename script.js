@@ -1,49 +1,84 @@
-const genres = [
-    { id: 28, name: "Action" },
-    { id: 12, name: "Adventure" },
-    { id: 16, name: "Animation" },
-    { id: 35, name: "Comedy" },
-    { id: 80, name: "Crime" },
-    { id: 99, name: "Documentary" },
-    { id: 18, name: "Drama" },
-    { id: 10751, name: "Family" },
-    { id: 14, name: "Fantasy" },
-    { id: 36, name: "History" },
-    { id: 27, name: "Horror" },
-    { id: 10402, name: "Music" },
-    { id: 9648, name: "Mystery" },
-    { id: 10749, name: "Romance" },
-    { id: 878, name: "Science Fiction" },
-    { id: 10770, name: "TV Movie" },
-    { id: 53, name: "Thriller" },
-    { id: 10752, name: "War" },
-    { id: 37, name: "Western" },
-]
 
-const app = {}
 
-app.apiKey = "352855b1ece3130738315189ae8c3079";
-app.url = 'https://api.themoviedb.org/3/discover/movie';
-// app.url = "https://api.themoviedb.org/3/genre/movie/list";
+const movieApp = {};
 
-const url = new URL(app.url)
-url.search = new URLSearchParams({
-    api_key:app.apiKey,
-    language: 'en-US', 
-    sort_by: "popularity.desc",
-    year: 2022, 
-    with_genres: "10751",
-    page: 1,
+movieApp.init = () => {
+    movieApp.submitListener();
+};
 
-})
-    fetch(url)
-        .then(function(response){
-            return response.json();
+// "Pick my Flix" listener
+movieApp.submitListener = () => {
+    const submitBtn = document.getElementById('submitBtn');
+    
+    // listen for click
+    submitBtn.addEventListener('click', function(e) {
+        // prevent page from restarting
+        e.preventDefault();
+
+        // save dropdown selections into variables
+        const selectedGenre = document.getElementById('genre').value;
+        const selectedYear = document.getElementById('year').value;
+
+        // save array of earliest decade date to latest decade date to be used for "primary release date" in search params
+        const earliestDate = ["1960-01-01", "1970-01-01", "1980-01-01", "1990-01-01"];
+        const latestDate = ["1969-12-31", "1979-12-31", "1989-12-31", "1999-12-31"]; 
+
+
+        // change user selection of genre into id used by API 
+        if (selectedGenre === "Crime") {
+            movieApp.genreId = 80;
+        } else if (selectedGenre === "Horror") {
+            movieApp.genreId = 27;
+        } else if (selectedGenre === "Romance") {
+            movieApp.genreId = 10749;
+        } else if (selectedGenre === "Action") {
+            movieApp.genreId = 28;
+        };
+
+
+        //change user selection for year into index in order to use for earliest and lastest date
+        if (selectedYear === "1990") {
+            movieApp.yearId = 3;
+        } else if (selectedYear === "1980") {
+            movieApp.yearId = 2;
+        } else if (selectedYear === "1970") {
+            movieApp.yearId = 1;
+        } else if (selectedYear === "1960") {
+            movieApp.yearId = 0;
+        };
+
+        console.log(movieApp.yearId,movieApp.genreId)
+        
+
+        // API call
+        movieApp.apiKey = "352855b1ece3130738315189ae8c3079";
+        movieApp.url = "https://api.themoviedb.org/3/discover/movie"; 
+        const url = new URL(movieApp.url)
+        url.search = new URLSearchParams({
+            api_key: movieApp.apiKey,
+            language: 'en-US',
+            sort_by: "popularity.desc",
+            with_genres: movieApp.genreId,
+            page: 1,
+            "primary_release_date.gte": earliestDate[movieApp.yearId],
+            "primary_release_date.lte": latestDate[movieApp.yearId],
         })
-        .then(function(jsonResult){
-            console.log(jsonResult)
-            //Pass our JSON Results to our displayMovies function.
-            // app.displayMovies(jsonResult)
-        });
+        fetch(url)
+            .then(function (response) {
+                return response.json();
+            })
+            .then(function (jsonResult) {
+                //Pass our JSON Results to our displayMovies function.
+                console.log(jsonResult.results, jsonResult.total_pages)
+                // movieApp.displayMovies(jsonResult.results);
+            })
+    })
+};
 
 
+// Save user selection into variable
+// append data to results section
+// listen to "more button" click to go to next page of results
+
+
+movieApp.init();
