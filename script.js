@@ -3,8 +3,37 @@
 const app = {};
 
 app.init = () => {
+    app.openModal();
     app.submitListener();
+    app.resetListener();
+    app.resetListener();
 };
+
+
+// Creating our Modal 
+app.openModal = () => {
+    // Define our Variables
+    app.backdrop = document.querySelector('backdrop');
+    app.modal = document.querySelector('modal');
+    app.infoContainer = document.querySelector('imgContainer');
+    // Create our Event
+    app.infoContainer.addEventListener('click', function(e){
+    
+        const infoClick = document.createElement('div')
+        app.infoContainer.classList.add('info');
+        infoContainer.innerHTML = 
+        `
+        <div>${film.poster_path}</div>
+        <div>${film.poster_path}</div>
+        <div>${film.poster_path}</div>
+        `;
+        
+        infoContainer.appendChild(infoClick)
+
+    })
+    
+
+}
 
 // "Pick my Flix" listener
 app.submitListener = () => {
@@ -73,6 +102,7 @@ app.submitListener = () => {
         // scroll to results (have to figure out why scroll is working on the 2nd click and not the first)
         const results = document.querySelector('h4').offsetTop;
         window.scrollTo({ top: results, behavior: "smooth" });
+
     })
 };
 
@@ -112,6 +142,10 @@ app.displayMovies = (arrayOfFilms) => {
             // append li to ul on page
             app.movieContainer.appendChild(movie)
 
+            // Clear out our Previous selected values 
+            // selectedGenre.value = "";
+            // selectedYear.value = "";
+
         }
         ;
     })
@@ -119,20 +153,77 @@ app.displayMovies = (arrayOfFilms) => {
 
 
 // More results listener 
-app.moreResultsListener = () => {
-    // listen to "more button" click to go to next page of results
-};
+
+app.moreButton = document.getElementById('moreBtn');
+// Listen for Click
+app.moreButton.addEventListener('click', function(e){
+    // Clear out our list for more results
+    app.movieContainer.innerHTML = "";
+
+    // Prevent Restart
+    e.preventDefault();
+
+        // save dropdown selections into variables
+        const selectedGenre = document.getElementById('genre').value;
+        const selectedYear = document.getElementById('year').value;
+    
+        // save array of earliest decade date to latest decade date to be used for "primary release date" in search params
+        const earliestDate = ["1960-01-01", "1970-01-01", "1980-01-01", "1990-01-01"];
+        const latestDate = ["1969-12-31", "1979-12-31", "1989-12-31", "1999-12-31"]; 
+    
+        // change user selection of genre into id used by API 
+        if (selectedGenre === "Crime") {
+            app.genreId = 80;
+        } else if (selectedGenre === "Horror") {
+            app.genreId = 27;
+        } else if (selectedGenre === "Romance") {
+            app.genreId = 10749;
+        } else if (selectedGenre === "Action") {
+            app.genreId = 28;
+        };
+    
+        //change user selection for year into index in order to use for earliest and lastest date
+        if (selectedYear === "1990") {
+            app.yearId = 3;
+        } else if (selectedYear === "1980") {
+            app.yearId = 2;
+        } else if (selectedYear === "1970") {
+            app.yearId = 1;
+        } else if (selectedYear === "1960") {
+            app.yearId = 0;
+        };
+    
+            // API call
+            app.apiKey = "352855b1ece3130738315189ae8c3079";
+            app.url = "https://api.themoviedb.org/3/discover/movie"; 
+            const url = new URL(app.url)
+            url.search = new URLSearchParams({
+                api_key: app.apiKey,
+                language: 'en-US',
+                sort_by: "popularity.desc",
+                with_genres: app.genreId,
+                page: 1,
+                "primary_release_date.gte": earliestDate[app.yearId],
+                "primary_release_date.lte": latestDate[app.yearId],
+            })
+            fetch(url)
+                .then(function (response) {
+                    return response.json();
+                })
+                .then(function (jsonResult) {
+                    //Pass our JSON Results to our displayMovies function.
+                    app.displayMovies(jsonResult.results.slice(13, 28)) 
+                    // jsonResult.total_pages)
+                    // app.displayMovies(jsonResult.results);
+            })
+    
+            // scroll to results (have to figure out why scroll is working on the 2nd click and not the first)
+            const results = document.querySelector('h4').offsetTop;
+            window.scrollTo({ top: results, behavior: "smooth" });
+})
 
 
-// Reset search listener
-app.resetSearch = () => {
-    const resetButton = document.getElementById('resetBtn');
-    const form = document.querySelector('form');
 
-    // resetButton.addEventListener('click', function() {
-    //     location.reload();
-    // })
-}
 
 
 app.init();

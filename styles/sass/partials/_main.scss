@@ -4,6 +4,26 @@
     margin: 0 auto;
 }
 
+.backdrop {
+    display: none;
+    position: fixed;
+    background: rgba(0, 0, 0, 0.5);
+    top: 0;
+    height: 100vh;
+    width: 100vw;
+    z-index: 1;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    background: white;
+    padding: 10px;
+    width: 760px;
+    top: 100px;
+    z-index: 1;
+}
+
 a {
     text-decoration: none;
 }

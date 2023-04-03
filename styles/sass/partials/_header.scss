@@ -13,7 +13,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 50px;
+    padding: 25px;
     
     background-color: #8B0000;
 
@@ -29,6 +29,7 @@
         width: 50%;
         display: flex;
         flex-direction: column;
+        padding: 55px 0 55px 55px;
         img {
             display: flex;
             align-self: center;
@@ -37,7 +38,7 @@
         h2 {
             display: flex;
             text-align: center;
-            margin: 0 0 200px 0;
+            margin: 0 0 50px 0;
             font-weight: 600;
         }
         h3 {
@@ -57,7 +58,6 @@
             justify-content: center;
             form {
                 display: flex;
-                gap: 20px;
                 justify-content: center;
                 margin-top: 20px;
                 flex-direction: column;
