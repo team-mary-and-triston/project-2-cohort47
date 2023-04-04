@@ -5,13 +5,25 @@ const app = {};
 app.init = () => {
     // app.openModal();
     app.submitListener();
-    // app.resetListener();
-    // app.formReset();
+    app.formReset();
 };
 
 //Reset our Form and allow users to resubmit
 app.formReset = () => {
-    const reset = document.getElementById('');
+    app.reset = document.getElementById('resetBtn');
+    
+        // Create event listener 
+    app.reset.addEventListener('click', function(e){
+        //Prevent page from restarting
+        e.preventDefault();
+        //Define our Variables 
+        const container = document.getElementsByClassName('resultsList');
+        console.log(container[0]);
+        //Remove the items from our Array
+        const removed = container[0];
+        removed.innerHTML = ``;
+    })
+
 }
 
 
