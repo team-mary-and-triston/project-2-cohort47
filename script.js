@@ -3,37 +3,46 @@
 const app = {};
 
 app.init = () => {
-    app.openModal();
+    // app.openModal();
     app.submitListener();
-    app.resetListener();
-    app.resetListener();
+    // app.resetListener();
+    // app.formReset();
 };
+
+//Reset our Form and allow users to resubmit
+app.formReset = () => {
+    const reset = document.querySelector('form').reset();
+}
 
 
 // Creating our Modal 
-app.openModal = () => {
-    // Define our Variables
-    app.backdrop = document.querySelector('backdrop');
-    app.modal = document.querySelector('modal');
-    app.infoContainer = document.querySelector('imgContainer');
-    // Create our Event
-    app.infoContainer.addEventListener('click', function(e){
+// app.openModal = () => {
+//     // Define our Variables
+//     app.backdrop = document.querySelector('backdrop');
+//     app.modal = document.querySelector('modal');
+//     app.infoContainer = document.querySelector('imgContainer');
+
+//     // Create our Event
+//     app.infoContainer.addEventListener('click', function(e){
     
-        const infoClick = document.createElement('div')
-        app.infoContainer.classList.add('info');
-        infoContainer.innerHTML = 
-        `
-        <div>${film.poster_path}</div>
-        <div>${film.poster_path}</div>
-        <div>${film.poster_path}</div>
-        `;
+//         const infoClick = document.createElement('div')
+//         app.infoContainer.classList.add('info');
+//         infoContainer.innerHTML = 
+//         `
+            // One would be for Poster 
+//         <div>${film.poster_path}</div>
+            // One would be for Description
+//         <div>${film.poster_path}</div>
+            // One would be for ???? Rating?
+//         <div>${film.poster_path}</div>
+//         `;
         
-        infoContainer.appendChild(infoClick)
+//         infoContainer.appendChild(infoClick)
 
-    })
+//     })
     
 
-}
+// }
 
 // "Pick my Flix" listener
 app.submitListener = () => {
@@ -141,10 +150,6 @@ app.displayMovies = (arrayOfFilms) => {
 
             // append li to ul on page
             app.movieContainer.appendChild(movie)
-
-            // Clear out our Previous selected values 
-            // selectedGenre.value = "";
-            // selectedYear.value = "";
 
         }
         ;
