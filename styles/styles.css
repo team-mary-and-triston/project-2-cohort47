@@ -249,6 +249,7 @@ button {
   -webkit-transition: 0.4s;
   transition: 0.4s;
   font-size: 1.2rem;
+  border-radius: 4px;
 }
 
 button:hover,
@@ -292,6 +293,7 @@ button:active {
 }
 .landing .landingImage .mainImage {
   width: 100%;
+  border-radius: 4%;
 }
 .landing .landingText {
   width: 50%;
@@ -361,6 +363,9 @@ button:active {
       -ms-flex-direction: column;
           flex-direction: column;
 }
+.landing .landingText .filters form .dropdown {
+  text-align: center;
+}
 .landing .landingText .filters form .options {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -370,11 +375,6 @@ button:active {
       -ms-flex-direction: row;
           flex-direction: row;
   width: 104%;
-}
-.landing .landingText .filters form .options select {
-  width: 50%;
-  margin: 30px 20px 0 0;
-  text-align: center;
 }
 
 .wrapper {
@@ -471,7 +471,7 @@ body {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  gap: 50px;
+  gap: 20px;
 }
 .results ul .resultsContainer {
   width: 25%;
@@ -525,4 +525,106 @@ body {
       -ms-flex-pack: center;
           justify-content: center;
   gap: 50px;
+}
+
+@media (max-width: 810px) {
+  .landing {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    padding: 20px;
+  }
+  .landing .landingText {
+    width: 90%;
+    padding: 0;
+  }
+  .landing .landingText img {
+    width: 50%;
+  }
+  .landing .landingText h2 {
+    margin-bottom: 30px;
+  }
+  .landing .landingText .filters {
+    width: 75%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-item-align: center;
+        align-self: center;
+  }
+  .landing .landingText #submitBtn {
+    width: 75%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-item-align: center;
+        align-self: center;
+  }
+  .landing .landingText #submitBtn p {
+    text-align: center;
+  }
+  .landing .landingImage {
+    width: 100%;
+  }
+  .results ul {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    width: 90%;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    gap: 5px;
+  }
+  .results ul .resultsContainer {
+    width: 30%;
+  }
+}
+@media (max-width: 375px) {
+  .landing .landingText img {
+    width: 100%;
+  }
+  .landing .landingText h2 {
+    font-weight: 100;
+  }
+  .landing .landingText h3 {
+    text-align: center;
+    margin-bottom: 10px;
+  }
+  .results .btnContainer {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    width: 100%;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    margin-top: 5%;
+  }
+  .results .btnContainer button {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-item-align: center;
+        align-self: center;
+  }
+  .results ul {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    width: 90%;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    gap: 5px;
+  }
+  .results ul .resultsContainer {
+    width: 30%;
+  }
 }
