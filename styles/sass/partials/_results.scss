@@ -12,11 +12,12 @@
             color: white;
         }
 
-        ul {
+        .resultsList {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
             gap: 20px;
+            padding-left: 0;
 
             .resultsContainer {
                 width: 25%;
@@ -69,3 +70,4 @@
             gap: 50px;
         }
     }
+

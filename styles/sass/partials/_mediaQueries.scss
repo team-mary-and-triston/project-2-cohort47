@@ -24,9 +24,7 @@
                 width: 75%;
                 display: flex;
                 align-self: center;
-                p {
-                    text-align: center;
-                }
+                text-align: center;
             }
         }
         // Styles for Image on landing page header 
@@ -35,14 +33,16 @@
         }
     }
     .results {
-
-        ul {
+        .resultsList {
             display: flex;
             width: 90%;
             flex-wrap: wrap;
-            gap: 5px;
+            margin: 0 auto;
+
+            gap: 15px;
+
             .resultsContainer {
-                width: 30%;
+                width: 45%;
             }
         }
     }
@@ -65,7 +65,6 @@
     }
     // Results page Styles 
     .results {
-
         .btnContainer {
             display: flex;
             flex-direction: column;
@@ -78,13 +77,16 @@
             }
         }
 
-        ul {
+        .resultsList {
             display: flex;
             width: 90%;
-            flex-wrap: wrap;
-            gap: 5px;
+            flex-direction: column;
+            align-content: center;
+            justify-content: center;
+            gap: 15px;
+
             .resultsContainer {
-                width: 30%;
+                width: 90%;
             }
         }
     }
