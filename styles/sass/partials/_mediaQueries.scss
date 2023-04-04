@@ -1,0 +1,94 @@
+@media (max-width: 810px){
+
+    // Header Styles 
+    .landing {
+        display: flex;
+        flex-direction: column;
+        padding: 20px;
+        // Styles for text on landing page header 
+        .landingText {
+            width: 90%;
+            padding: 0;
+            img {
+                width: 50%;
+            }
+            h2 {
+                margin-bottom: 30px;
+            }
+            .filters {
+                width: 75%;
+                display: flex;
+                align-self: center;
+            }
+            #submitBtn {
+                width: 75%;
+                display: flex;
+                align-self: center;
+                text-align: center;
+            }
+        }
+        // Styles for Image on landing page header 
+        .landingImage {
+            width: 100%;
+        }
+    }
+    .results {
+        .resultsList {
+            display: flex;
+            width: 90%;
+            flex-wrap: wrap;
+            margin: 0 auto;
+
+            gap: 15px;
+
+            .resultsContainer {
+                width: 45%;
+            }
+        }
+    }
+
+}
+@media (max-width: 375px){
+    .landing {
+        .landingText {
+            img {
+                width: 100%;
+            }
+            h2 {
+                font-weight: 100;
+            }
+            h3 {
+                text-align: center;
+                margin-bottom: 10px;
+            }
+        }
+    }
+    // Results page Styles 
+    .results {
+        .btnContainer {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            align-items: center;
+            margin-top: 5%;
+            button {
+                display: flex;
+                align-self: center;
+            }
+        }
+
+        .resultsList {
+            display: flex;
+            width: 90%;
+            flex-direction: column;
+            align-content: center;
+            justify-content: center;
+            gap: 15px;
+
+            .resultsContainer {
+                width: 90%;
+            }
+        }
+    }
+}
+
