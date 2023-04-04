@@ -462,7 +462,7 @@ body {
   font-weight: 800;
   color: white;
 }
-.results ul {
+.results .resultsList {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -472,22 +472,23 @@ body {
       -ms-flex-pack: center;
           justify-content: center;
   gap: 50px;
+  padding-left: 0;
 }
-.results ul .resultsContainer {
+.results .resultsList .resultsContainer {
   width: 25%;
   position: relative;
 }
-.results ul .resultsContainer .imgContainer {
+.results .resultsList .resultsContainer .imgContainer {
   width: 100%;
   height: 100%;
 }
-.results ul .resultsContainer .imgContainer img {
+.results .resultsList .resultsContainer .imgContainer img {
   width: inherit;
   height: inherit;
   -o-object-fit: cover;
      object-fit: cover;
 }
-.results ul .resultsContainer .textOverlay {
+.results .resultsList .resultsContainer .textOverlay {
   position: absolute;
   left: 0;
   top: 0;
@@ -507,13 +508,13 @@ body {
   opacity: 0;
   cursor: pointer;
 }
-.results ul .resultsContainer .textOverlay p {
+.results .resultsList .resultsContainer .textOverlay p {
   text-align: center;
   font-size: 1.2rem;
   font-weight: 600;
   color: white;
 }
-.results ul .resultsContainer .textOverlay:hover {
+.results .resultsList .resultsContainer .textOverlay:hover {
   opacity: 1;
 }
 .results .btnContainer {
