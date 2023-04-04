@@ -68,11 +68,13 @@ app.submitListener = () => {
             })
             .then(function (jsonResult) {
                 //Pass our JSON Results to our displayMovies function.
-                app.displayMovies(jsonResult.results) 
+                app.displayMovies(jsonResult.results)
+                app.openModal(jsonResult.results) 
                 // jsonResult.total_pages)
 
                 //save total pages to use for randomizer in more results
                 app.totalPages = jsonResult.total_pages;
+
         })
 
         // scroll to results (have to figure out why scroll is working on the 2nd click and not the first)
@@ -121,12 +123,12 @@ app.displayMovies = (arrayOfFilms) => {
                 // append li to ul on page
                 app.movieContainer.appendChild(movie)
 
-            }
-            ;
+            };
+            
+            
         })
     };
 
-    app.openModal();
 };
 
 // More results listener 
@@ -221,14 +223,16 @@ app.resetListener = () => {
 //     // app.modal = document.querySelector('modal');
 //     // app.infoContainer = document.querySelector('imgContainer');
 
-app.openModal = () => {
+app.openModal = (arrayOfFilms) => {
     const resultPosters = document.querySelectorAll('.resultsContainer');
-    
+
     resultPosters.forEach(poster => {
         poster.addEventListener('click', function () {
-            console.log('WORKED');
+
+            // console.log(film.original_title, film.overview);
         })
     })
+
 
 }
 
