@@ -3,11 +3,8 @@ const app = {};
 app.init = () => {
     app.submitListener();
     app.moreResultsListener();
-    // app.resetListener();
 
 };
-
-//Reset our Form and allow users to resubmit
 
 // "Pick my Flix" listener
 app.submitListener = () => {
@@ -74,7 +71,6 @@ app.submitListener = () => {
 
                 //save total pages to use for randomizer in more results
                 app.totalPages = jsonResult.total_pages;
-
         })
 
         // scroll to results (have to figure out why scroll is working on the 2nd click and not the first)
@@ -205,89 +201,9 @@ app.moreResultsListener = () => {
     })
 }
 
-// Reset Listener
-app.resetListener = () => {
-    app.formReset = () => {
-        const reset = document.querySelector('form').reset();
-    }
-}
 
 
-// // Modal 
 
-// Create our Event
-
-// app.openModal = (posters) => {
-//     // Define our Variables
-//     // app.backdrop = document.querySelector('backdrop');
-//     // app.modal = document.querySelector('modal');
-//     // app.infoContainer = document.querySelector('imgContainer');
-
-app.openModal = (arrayOfFilms) => {
-    const resultPosters = document.querySelectorAll('.resultsContainer');
-
-    resultPosters.forEach(poster => {
-        poster.addEventListener('click', function () {
-
-            // console.log(film.original_title, film.overview);
-        })
-    })
-
-
-}
-
-//     // Create our Event
-//     posters.forEach((poster) => {
-//         poster.addEventListener('click', function(){
-//             console.log('WORKED');
-//         })
-
-//         // const infoClick = document.createElement('div')
-//         // app.infoContainer.classList.add('info');
-//         // infoContainer.innerHTML = 
-//         // `
-//         //     One would be for Poster 
-//         // <div>${film.poster_path}</div>
-//         //     One would be for Description
-//         // <div>${film.poster_path}</div>
-//         //     One would be for ???? Rating?
-//         // <div>${film.poster_path}</div>
-//         // `;
-        
-//         // infoContainer.appendChild(infoClick)
-
-//     })
-    
-// }
-
-// Creating our Modal 
-// app.openModal = () => {
-//     // Define our Variables
-//     app.backdrop = document.querySelector('backdrop');
-//     app.modal = document.querySelector('modal');
-//     app.infoContainer = document.querySelector('imgContainer');
-
-//    // Create our Event
-//     app.infoContainer.addEventListener('click', function(e){
-        
-//         const infoClick = document.createElement('div')
-//         app.infoContainer.classList.add('info');
-//         infoContainer.innerHTML = 
-//         `
-//             One would be for Poster 
-//         <div>${film.poster_path}</div>
-//             One would be for Description
-//         <div>${film.poster_path}</div>
-//             One would be for ???? Rating?
-//         <div>${film.poster_path}</div>
-//         `;
-        
-//         infoContainer.appendChild(infoClick)
-
-//     })
-    
-
-// }
 
 
 app.init();
