@@ -66,8 +66,6 @@ app.submitListener = () => {
             .then(function (jsonResult) {
                 //Pass our JSON Results to our displayMovies function.
                 app.displayMovies(jsonResult.results)
-                app.openModal(jsonResult.results) 
-                // jsonResult.total_pages)
 
                 //save total pages to use for randomizer in more results
                 app.totalPages = jsonResult.total_pages;
