@@ -18,43 +18,12 @@ app.formReset = () => {
         e.preventDefault();
         //Define our Variables 
         const container = document.getElementsByClassName('resultsList');
-        console.log(container[0]);
         //Remove the items from our Array
         const removed = container[0];
         removed.innerHTML = ``;
     })
 
 }
-
-
-// Creating our Modal 
-// app.openModal = () => {
-//     // Define our Variables
-//     app.backdrop = document.querySelector('backdrop');
-//     app.modal = document.querySelector('modal');
-//     app.infoContainer = document.querySelector('imgContainer');
-
-//     // Create our Event
-//     app.infoContainer.addEventListener('click', function(e){
-    
-//         const infoClick = document.createElement('div')
-//         app.infoContainer.classList.add('info');
-//         infoContainer.innerHTML = 
-//         `
-            // One would be for Poster 
-//         <div>${film.poster_path}</div>
-            // One would be for Description
-//         <div>${film.poster_path}</div>
-            // One would be for ???? Rating?
-//         <div>${film.poster_path}</div>
-//         `;
-        
-//         infoContainer.appendChild(infoClick)
-
-//     })
-    
-
-// }
 
 // "Pick my Flix" listener
 app.submitListener = () => {
@@ -116,8 +85,6 @@ app.submitListener = () => {
             .then(function (jsonResult) {
                 //Pass our JSON Results to our displayMovies function.
                 app.displayMovies(jsonResult.results) 
-                // jsonResult.total_pages)
-                // app.displayMovies(jsonResult.results);
         })
 
         // scroll to results (have to figure out why scroll is working on the 2nd click and not the first)
@@ -230,8 +197,6 @@ app.moreButton.addEventListener('click', function(e){
                 .then(function (jsonResult) {
                     //Pass our JSON Results to our displayMovies function.
                     app.displayMovies(jsonResult.results.slice(13, 28)) 
-                    // jsonResult.total_pages)
-                    // app.displayMovies(jsonResult.results);
             })
     
             // scroll to results (have to figure out why scroll is working on the 2nd click and not the first)
