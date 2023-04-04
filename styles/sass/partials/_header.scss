@@ -14,7 +14,6 @@
     align-items: center;
     justify-content: center;
     padding: 25px;
-    
     background-color: #8B0000;
 
     .landingImage {
@@ -22,6 +21,7 @@
         display: flex;
         .mainImage {
             width: 100%;
+            border-radius: 4%;
         }
     }
 
@@ -62,17 +62,18 @@
                 margin-top: 20px;
                 flex-direction: column;
                 // flex-direction: column;
+                .dropdown {
+                    text-align: center;
+                }
+                
                 .options {
                     display: flex;
                     flex-direction: row;
                     width: 104%;
                     
-                    select {
-                        width: 50%;
-                        margin: 30px 20px 0 0;
-                        text-align: center; 
-                        
-                    }
+                    
+                    
+                    
                 }
             }    
            

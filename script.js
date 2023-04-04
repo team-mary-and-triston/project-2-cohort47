@@ -1,49 +1,14 @@
-
-
 const app = {};
 
 app.init = () => {
     app.submitListener();
     app.moreResultsListener();
     app.openModal();
-    // app.resetListener();
-    // app.formReset();
+    app.resetListener();
+
 };
 
 //Reset our Form and allow users to resubmit
-// app.formReset = () => {
-//     const reset = document.querySelector('form').reset();
-// }
-
-
-// Creating our Modal 
-// app.openModal = () => {
-//     // Define our Variables
-//     app.backdrop = document.querySelector('backdrop');
-//     app.modal = document.querySelector('modal');
-//     app.infoContainer = document.querySelector('imgContainer');
-
-//     // Create our Event
-//     app.infoContainer.addEventListener('click', function(e){
-        
-//         const infoClick = document.createElement('div')
-//         app.infoContainer.classList.add('info');
-//         infoContainer.innerHTML = 
-//         `
-//             One would be for Poster 
-//         <div>${film.poster_path}</div>
-//             One would be for Description
-//         <div>${film.poster_path}</div>
-//             One would be for ???? Rating?
-//         <div>${film.poster_path}</div>
-//         `;
-        
-//         infoContainer.appendChild(infoClick)
-
-//     })
-    
-
-// }
 
 // "Pick my Flix" listener
 app.submitListener = () => {
@@ -123,43 +88,45 @@ app.displayMovies = (arrayOfFilms) => {
     // target ul 
     app.movieContainer = document.querySelector('.resultsList');
 
-    arrayOfFilms.forEach(film => {
+    if (app.movieContainer.innerHTML !== "") {
+        app.movieContainer.innerHTML = "";
+    } else {
+        arrayOfFilms.forEach(film => {
 
-        // limit results to 12
-        if (arrayOfFilms.indexOf(film) <= 11) {
-            // create li element
-            const movie = document.createElement('li');
-            movie.classList.add('resultsContainer')
-            
-            // create div elements to house image and title
-            const imageContainer = document.createElement('div');
-            imageContainer.classList.add('imgContainer');
+            // limit results to 12
+            if (arrayOfFilms.indexOf(film) <= 11) {
+                // create li element
+                const movie = document.createElement('li');
+                movie.classList.add('resultsContainer')
 
-            const titleOverlay = document.createElement('div');
-            titleOverlay.classList.add('textOverlay');
+                // create div elements to house image and title
+                const imageContainer = document.createElement('div');
+                imageContainer.classList.add('imgContainer');
 
-            // use API call data to change poster and film title
-            imageContainer.innerHTML =
-            `
+                const titleOverlay = document.createElement('div');
+                titleOverlay.classList.add('textOverlay');
+
+                // use API call data to change poster and film title
+                imageContainer.innerHTML =
+                    `
             <img src="http://image.tmdb.org/t/p/w500/${film.poster_path}" alt="${film.title}">
             `
-            titleOverlay.innerHTML = 
-            `
+                titleOverlay.innerHTML =
+                    `
             <p>${film.title}</p>
             `
-            // append divs to li
-            movie.appendChild(imageContainer);
-            movie.appendChild(titleOverlay);
+                // append divs to li
+                movie.appendChild(imageContainer);
+                movie.appendChild(titleOverlay);
 
-            // append li to ul on page
-            app.movieContainer.appendChild(movie)
+                // append li to ul on page
+                app.movieContainer.appendChild(movie)
 
-        }
-        ;
-    })
+            }
+            ;
+        })
 };
-// when you click pick my flix, it appends again. How to prevent?
-
+};
 
 // More results listener 
 app.moreResultsListener = () => {
@@ -235,38 +202,75 @@ app.moreResultsListener = () => {
     })
 }
 
-// Modal 
-app.openModal = () => {
-    // Define our Variables
-    // app.backdrop = document.querySelector('backdrop');
-    // app.modal = document.querySelector('modal');
-    // app.infoContainer = document.querySelector('imgContainer');
-
-    const resultPosters = document.querySelectorAll('.imgContainer');
-
-    // Create our Event
-    resultPosters.forEach((poster) => {
-        poster.addEventListener('click', function(){
-            console.log('WORKED');
-        })
-
-        // const infoClick = document.createElement('div')
-        // app.infoContainer.classList.add('info');
-        // infoContainer.innerHTML = 
-        // `
-        //     One would be for Poster 
-        // <div>${film.poster_path}</div>
-        //     One would be for Description
-        // <div>${film.poster_path}</div>
-        //     One would be for ???? Rating?
-        // <div>${film.poster_path}</div>
-        // `;
-        
-        // infoContainer.appendChild(infoClick)
-
-    })
-    
+// Reset Listener
+app.resetListener = () => {
+    app.formReset = () => {
+        const reset = document.querySelector('form').reset();
+    }
 }
+
+
+// // Modal 
+// app.openModal = () => {
+//     // Define our Variables
+//     // app.backdrop = document.querySelector('backdrop');
+//     // app.modal = document.querySelector('modal');
+//     // app.infoContainer = document.querySelector('imgContainer');
+
+//     const resultPosters = document.querySelectorAll('.resultsContainer');
+
+//     // Create our Event
+//     resultPosters.forEach((poster) => {
+//         poster.addEventListener('click', function(){
+//             console.log('WORKED');
+//         })
+
+//         // const infoClick = document.createElement('div')
+//         // app.infoContainer.classList.add('info');
+//         // infoContainer.innerHTML = 
+//         // `
+//         //     One would be for Poster 
+//         // <div>${film.poster_path}</div>
+//         //     One would be for Description
+//         // <div>${film.poster_path}</div>
+//         //     One would be for ???? Rating?
+//         // <div>${film.poster_path}</div>
+//         // `;
+        
+//         // infoContainer.appendChild(infoClick)
+
+//     })
+    
+// }
+
+// Creating our Modal 
+// app.openModal = () => {
+//     // Define our Variables
+//     app.backdrop = document.querySelector('backdrop');
+//     app.modal = document.querySelector('modal');
+//     app.infoContainer = document.querySelector('imgContainer');
+
+//    // Create our Event
+//     app.infoContainer.addEventListener('click', function(e){
+        
+//         const infoClick = document.createElement('div')
+//         app.infoContainer.classList.add('info');
+//         infoContainer.innerHTML = 
+//         `
+//             One would be for Poster 
+//         <div>${film.poster_path}</div>
+//             One would be for Description
+//         <div>${film.poster_path}</div>
+//             One would be for ???? Rating?
+//         <div>${film.poster_path}</div>
+//         `;
+        
+//         infoContainer.appendChild(infoClick)
+
+//     })
+    
+
+// }
 
 
 app.init();
