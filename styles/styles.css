@@ -281,7 +281,7 @@ button:active {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  padding: 50px;
+  padding: 25px;
   background-color: #8B0000;
 }
 .landing .landingImage {
@@ -302,6 +302,7 @@ button:active {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  padding: 55px 0 55px 55px;
 }
 .landing .landingText img {
   display: -webkit-box;
@@ -315,9 +316,8 @@ button:active {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -ms-flex-item-align: center;
-      align-self: center;
-  margin: 0 0 200px 0;
+  text-align: center;
+  margin: 0 0 50px 0;
   font-weight: 600;
 }
 .landing .landingText h3 {
@@ -332,8 +332,7 @@ button:active {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -ms-flex-item-align: center;
-      align-self: center;
+  text-align: center;
   color: white;
   margin-top: 5px;
 }
@@ -341,12 +340,41 @@ button:active {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
 }
-.landing .landingText .filters select {
-  width: auto;
+.landing .landingText .filters form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-top: 20px;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+.landing .landingText .filters form .options {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  width: 104%;
+}
+.landing .landingText .filters form .options select {
+  width: 50%;
+  margin: 30px 20px 0 0;
+  text-align: center;
 }
 
 .wrapper {
@@ -355,12 +383,37 @@ button:active {
   margin: 0 auto;
 }
 
+.backdrop {
+  display: none;
+  position: fixed;
+  background: rgba(0, 0, 0, 0.5);
+  top: 0;
+  height: 100vh;
+  width: 100vw;
+  z-index: 1;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  background: white;
+  padding: 10px;
+  width: 760px;
+  top: 100px;
+  z-index: 1;
+}
+
 a {
   text-decoration: none;
 }
 
 ul {
   list-style: none;
+}
+
+img {
+  width: 100%;
+  display: block;
 }
 
 body {
