@@ -3,8 +3,7 @@ const app = {};
 app.init = () => {
     app.submitListener();
     app.moreResultsListener();
-    app.openModal();
-    app.resetListener();
+    // app.resetListener();
 
 };
 
@@ -125,7 +124,9 @@ app.displayMovies = (arrayOfFilms) => {
             }
             ;
         })
-};
+    };
+
+    app.openModal();
 };
 
 // More results listener 
@@ -211,16 +212,28 @@ app.resetListener = () => {
 
 
 // // Modal 
-// app.openModal = () => {
+
+// Create our Event
+
+// app.openModal = (posters) => {
 //     // Define our Variables
 //     // app.backdrop = document.querySelector('backdrop');
 //     // app.modal = document.querySelector('modal');
 //     // app.infoContainer = document.querySelector('imgContainer');
 
-//     const resultPosters = document.querySelectorAll('.resultsContainer');
+app.openModal = () => {
+    const resultPosters = document.querySelectorAll('.resultsContainer');
+    
+    resultPosters.forEach(poster => {
+        poster.addEventListener('click', function () {
+            console.log('WORKED');
+        })
+    })
+
+}
 
 //     // Create our Event
-//     resultPosters.forEach((poster) => {
+//     posters.forEach((poster) => {
 //         poster.addEventListener('click', function(){
 //             console.log('WORKED');
 //         })
