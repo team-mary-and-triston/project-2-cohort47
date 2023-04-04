@@ -116,6 +116,7 @@ app.displayMovies = (arrayOfFilms) => {
         ;
     })
 };
+// when you click pick my flix, it appends again. How to prevent?
 
 
 // More results listener 
@@ -134,5 +135,6 @@ app.resetSearch = () => {
     // })
 }
 
+// Modal 
 
 app.init();
